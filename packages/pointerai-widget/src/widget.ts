@@ -1,4 +1,4 @@
-import { PointerAIClient, PointerAIError, createAnonUid } from "@pointerdev/pointerai-client";
+import { PointerAIClient, PointerAIError, createAnonUid } from "@pointerdevks/pointerai-client";
 
 type Position = "left" | "right";
 type WidgetRole = "user" | "assistant";
@@ -1103,3 +1103,4 @@ if (document.readyState === "loading") {
 } else {
   tryAutoInit();
 }
+

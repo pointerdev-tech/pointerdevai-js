@@ -1,5 +1,5 @@
 {
-  "name": "@pointerdev/pointerai-widget",
+  "name": "@pointerdevks/pointerai-widget",
   "version": "0.1.0",
   "description": "Embeddable PointerAI chat widget for script-tag/CDN integrations.",
   "type": "module",
@@ -18,7 +18,7 @@
     "./dist/pointerai-widget.js": "./dist/pointerai-widget.js"
   },
   "dependencies": {
-    "@pointerdev/pointerai-client": "^0.1.0"
+    "@pointerdevks/pointerai-client": "^0.1.0"
   },
   "devDependencies": {
     "esbuild": "^0.25.10",
@@ -42,3 +42,4 @@
     "node": ">=18"
   }
 }
+

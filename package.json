@@ -7,9 +7,9 @@
     "packages/*"
   ],
   "scripts": {
-    "lint": "npm -w @pointerdev/pointerai-client run lint && npm -w @pointerdev/pointerai-widget run lint",
-    "build": "npm -w @pointerdev/pointerai-widget run build",
-    "smoke": "npm -w @pointerdev/pointerai-widget run smoke",
+    "lint": "npm -w @pointerdevks/pointerai-client run lint && npm -w @pointerdevks/pointerai-widget run lint",
+    "build": "npm -w @pointerdevks/pointerai-widget run build",
+    "smoke": "npm -w @pointerdevks/pointerai-widget run smoke",
     "test": "npm run smoke"
   },
   "engines": {
@@ -17,3 +17,4 @@
   },
   "license": "MIT"
 }
+

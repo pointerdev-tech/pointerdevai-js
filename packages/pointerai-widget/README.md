@@ -1,13 +1,13 @@
-# @pointerdev/pointerai-widget
+# @pointerdevks/pointerai-widget
 
 Embeddable PointerAI chat widget for script-tag/CDN integration.
 
-This package now ships a real source/build pipeline and uses `@pointerdev/pointerai-client` under the hood.
+This package now ships a real source/build pipeline and uses `@pointerdevks/pointerai-client` under the hood.
 
 ## Install via CDN (after publish)
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@pointerdev/pointerai-widget@latest/dist/pointerai-widget.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@pointerdevks/pointerai-widget@latest/dist/pointerai-widget.js" defer></script>
 ```
 
 ## Local development
@@ -32,7 +32,7 @@ window.pointeraiWidgetConfig = {
   launcherLabel: 'Chat with us',
 };
 </script>
-<script src="https://cdn.jsdelivr.net/npm/@pointerdev/pointerai-widget@latest/dist/pointerai-widget.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@pointerdevks/pointerai-widget@latest/dist/pointerai-widget.js" defer></script>
 ```
 
 ## login_required projects
@@ -48,7 +48,7 @@ window.pointeraiWidgetConfig = {
   endUserToken: '<END_USER_JWT>',
 };
 </script>
-<script src="https://cdn.jsdelivr.net/npm/@pointerdev/pointerai-widget@latest/dist/pointerai-widget.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@pointerdevks/pointerai-widget@latest/dist/pointerai-widget.js" defer></script>
 ```
 
 ## Options
@@ -131,3 +131,4 @@ await window.PointerAIWidget.reconnect();
   - typing indicator while answer is in progress
   - offline/online awareness with reconnect status
   - one-click retry for the last failed message
+

@@ -1,5 +1,5 @@
 {
-  "name": "@pointerdev/pointerai-client",
+  "name": "@pointerdevks/pointerai-client",
   "version": "0.1.0",
   "description": "Official JavaScript client for PointerAI chat APIs.",
   "type": "module",
@@ -33,3 +33,4 @@
     "lint": "node -e \"import('./index.js').then(() => console.log('ok'))\""
   }
 }
+
