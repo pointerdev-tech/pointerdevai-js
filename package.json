@@ -1,0 +1,19 @@
+{
+  "name": "pointerdevai-js",
+  "private": true,
+  "version": "0.1.0",
+  "description": "PointerDev AI JavaScript monorepo (client + widget).",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "lint": "npm -w @pointerdev/pointerai-client run lint && npm -w @pointerdev/pointerai-widget run lint",
+    "build": "npm -w @pointerdev/pointerai-widget run build",
+    "smoke": "npm -w @pointerdev/pointerai-widget run smoke",
+    "test": "npm run smoke"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT"
+}

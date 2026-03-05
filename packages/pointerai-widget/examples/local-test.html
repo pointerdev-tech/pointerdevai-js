@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PointerAI Widget Local Test</title>
+  <style>
+    :root { font-family: ui-sans-serif, -apple-system, "Segoe UI", sans-serif; }
+    body { margin: 24px; background: #f5f7fb; color: #0f172a; }
+    .card {
+      max-width: 860px;
+      background: #fff;
+      border: 1px solid #dbe2ea;
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    label { font-size: 12px; color: #475569; font-weight: 600; }
+    input, select {
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 8px 10px;
+      font-size: 14px;
+      outline: none;
+      background: #fff;
+    }
+    input:focus, select:focus { border-color: #0f766e; box-shadow: 0 0 0 3px rgba(15,118,110,.15); }
+    .row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    button {
+      border: 0;
+      border-radius: 8px;
+      background: #0f766e;
+      color: #fff;
+      padding: 9px 12px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    button.secondary { background: #334155; }
+    button.danger { background: #b91c1c; }
+    .hint {
+      margin-top: 12px;
+      font-size: 12px;
+      color: #475569;
+      line-height: 1.4;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 10px;
+    }
+    .log {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #334155;
+      max-height: 140px;
+      overflow: auto;
+      background: #0b1020;
+      color: #cbd5e1;
+      border-radius: 8px;
+      padding: 10px;
+      white-space: pre-wrap;
+    }
+    @media (max-width: 780px) { .grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2 style="margin: 0 0 8px;">PointerAI Widget Package Test</h2>
+    <p style="margin-top: 0; color:#475569;">
+      This page loads <code>../dist/pointerai-widget.js</code>. Build first with <code>npm run build</code>.
+    </p>
+
+    <div class="grid">
+      <div class="field">
+        <label for="apiBaseUrl">API Base URL</label>
+        <input id="apiBaseUrl" value="http://localhost:8000" />
+      </div>
+      <div class="field">
+        <label for="projectId">Project ID</label>
+        <input id="projectId" placeholder="uuid..." />
+      </div>
+      <div class="field">
+        <label for="publishableKey">Publishable Key</label>
+        <input id="publishableKey" placeholder="pk_..." />
+      </div>
+      <div class="field">
+        <label for="mode">Auth Mode</label>
+        <select id="mode">
+          <option value="guest">Guest</option>
+          <option value="login_required">Login Required</option>
+        </select>
+      </div>
+      <div class="field" style="grid-column: 1 / -1;">
+        <label for="endUserToken">End User Token (required for login_required)</label>
+        <input id="endUserToken" placeholder="Bearer token value only" />
+      </div>
+    </div>
+
+    <div class="row">
+      <button id="initBtn">Init Widget</button>
+      <button id="openBtn" class="secondary">Open</button>
+      <button id="closeBtn" class="secondary">Close</button>
+      <button id="sendBtn" class="secondary">Send Test Message</button>
+      <button id="reconnectBtn" class="secondary">Reconnect</button>
+      <button id="destroyBtn" class="danger">Destroy</button>
+    </div>
+
+    <div class="hint">
+      For <b>guest</b>, leave token empty. For <b>login_required</b>, paste a valid end-user JWT and click Init.
+      Use browser devtools Network tab to observe calls to <code>/api/chat</code>, <code>/api/runtime/sessions</code>, and <code>/messages</code>.
+    </div>
+    <div id="log" class="log"></div>
+  </div>
+
+  <script src="../dist/pointerai-widget.js" defer></script>
+  <script>
+    const $ = (id) => document.getElementById(id);
+    const logEl = $("log");
+    const log = (msg) => {
+      const ts = new Date().toISOString().slice(11, 19);
+      logEl.textContent = `[${ts}] ${msg}\n` + logEl.textContent;
+    };
+
+    function configFromForm() {
+      const mode = $("mode").value;
+      const cfg = {
+        apiBaseUrl: $("apiBaseUrl").value.trim(),
+        projectId: $("projectId").value.trim(),
+        publishableKey: $("publishableKey").value.trim(),
+        title: "PointerAI Local Test",
+        subtitle: "Widget package smoke page",
+        launcherLabel: "Test Chat",
+        openOnLoad: true,
+      };
+      if (mode === "login_required") {
+        const token = $("endUserToken").value.trim();
+        if (token) cfg.endUserToken = token;
+      }
+      return cfg;
+    }
+
+    async function initWidget() {
+      if (!window.PointerAIWidget) {
+        log("ERROR: window.PointerAIWidget is not loaded.");
+        return;
+      }
+      try {
+        await window.PointerAIWidget.init(configFromForm());
+        log("Widget initialized.");
+      } catch (err) {
+        log(`Init failed: ${err?.message || err}`);
+      }
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      $("initBtn").addEventListener("click", () => void initWidget());
+      $("openBtn").addEventListener("click", () => {
+        try { window.PointerAIWidget?.open(); log("Opened."); } catch (err) { log(String(err)); }
+      });
+      $("closeBtn").addEventListener("click", () => {
+        try { window.PointerAIWidget?.close(); log("Closed."); } catch (err) { log(String(err)); }
+      });
+      $("sendBtn").addEventListener("click", async () => {
+        try {
+          await window.PointerAIWidget?.sendMessage("Hello from local-test.html");
+          log("Sent test message.");
+        } catch (err) {
+          log(`Send failed: ${err?.message || err}`);
+        }
+      });
+      $("reconnectBtn").addEventListener("click", async () => {
+        try {
+          if ($("mode").value === "login_required") {
+            const token = $("endUserToken").value.trim() || null;
+            await window.PointerAIWidget?.setEndUserToken(token);
+            log("Token updated via setEndUserToken().");
+          }
+          await window.PointerAIWidget?.reconnect();
+          log("Reconnect requested.");
+        } catch (err) {
+          log(`Reconnect failed: ${err?.message || err}`);
+        }
+      });
+      $("destroyBtn").addEventListener("click", () => {
+        try {
+          window.PointerAIWidget?.destroy();
+          log("Widget destroyed.");
+        } catch (err) {
+          log(String(err));
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+

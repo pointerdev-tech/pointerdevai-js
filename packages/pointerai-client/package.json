@@ -1,0 +1,35 @@
+{
+  "name": "@pointerdev/pointerai-client",
+  "version": "0.1.0",
+  "description": "Official JavaScript client for PointerAI chat APIs.",
+  "type": "module",
+  "main": "./index.js",
+  "module": "./index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.js",
+      "default": "./index.js"
+    }
+  },
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "README.md"
+  ],
+  "keywords": [
+    "pointerai",
+    "chat",
+    "api",
+    "sdk",
+    "javascript"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "lint": "node -e \"import('./index.js').then(() => console.log('ok'))\""
+  }
+}
