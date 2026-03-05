@@ -1,0 +1,44 @@
+{
+  "name": "@pointerdev/pointerai-widget",
+  "version": "0.1.0",
+  "description": "Embeddable PointerAI chat widget for script-tag/CDN integrations.",
+  "type": "module",
+  "main": "./dist/pointerai-widget.js",
+  "scripts": {
+    "build": "esbuild src/widget.ts --bundle --format=iife --target=es2019 --outfile=dist/pointerai-widget.js",
+    "dev": "esbuild src/widget.ts --bundle --format=iife --target=es2019 --outfile=dist/pointerai-widget.js --watch",
+    "lint": "tsc --noEmit",
+    "smoke": "npm run build && node ./scripts/smoke.mjs",
+    "prepublishOnly": "npm run build && npm run smoke"
+  },
+  "exports": {
+    ".": {
+      "default": "./dist/pointerai-widget.js"
+    },
+    "./dist/pointerai-widget.js": "./dist/pointerai-widget.js"
+  },
+  "dependencies": {
+    "@pointerdev/pointerai-client": "^0.1.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.10",
+    "happy-dom": "^16.8.1",
+    "typescript": "^5.9.2"
+  },
+  "files": [
+    "dist/pointerai-widget.js",
+    "src/widget.ts",
+    "README.md"
+  ],
+  "keywords": [
+    "pointerai",
+    "widget",
+    "chat",
+    "cdn",
+    "embed"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  }
+}
