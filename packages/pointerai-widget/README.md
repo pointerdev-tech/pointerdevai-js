@@ -25,7 +25,7 @@ npm run smoke
 ```html
 <script>
 window.pointeraiWidgetConfig = {
-  apiBaseUrl: 'https://api.example.com',
+  apiBaseUrl: 'https://pointerdev.ai',
   projectId: '<PROJECT_ID>',
   publishableKey: '<PUBLISHABLE_KEY>',
   title: 'Support chat',
@@ -42,7 +42,7 @@ Provide `endUserToken` from your backend so the widget can exchange it for a sho
 ```html
 <script>
 window.pointeraiWidgetConfig = {
-  apiBaseUrl: 'https://api.example.com',
+  apiBaseUrl: 'https://pointerdev.ai',
   projectId: '<PROJECT_ID>',
   publishableKey: '<PUBLISHABLE_KEY>',
   endUserToken: '<END_USER_JWT>',
@@ -96,7 +96,7 @@ window.pointeraiWidgetConfig = {
 <script>
 (async function () {
   await window.PointerAIWidget.init({
-    apiBaseUrl: 'https://api.example.com',
+    apiBaseUrl: 'https://pointerdev.ai',
     projectId: '<PROJECT_ID>',
     publishableKey: '<PUBLISHABLE_KEY>',
   });
@@ -131,4 +131,5 @@ await window.PointerAIWidget.reconnect();
   - typing indicator while answer is in progress
   - offline/online awareness with reconnect status
   - one-click retry for the last failed message
+
 

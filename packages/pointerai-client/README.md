@@ -15,7 +15,7 @@ npm install ./packages/pointerai-client
 import { createPointerAIClient, createAnonUid } from '@pointerdevks/pointerai-client';
 
 const client = createPointerAIClient({
-  baseUrl: 'http://localhost:8000',
+  baseUrl: 'https://pointerdev.ai',
   projectId: '<PROJECT_ID>',
   publishableKey: '<PUBLISHABLE_KEY>',
 });
@@ -83,4 +83,5 @@ await client.revokeSessionToken();
 cd packages/pointerai-client
 npm publish --access public
 ```
+
 
