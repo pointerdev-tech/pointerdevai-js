@@ -1,4 +1,4 @@
-import { PointerAIClient, PointerAIError, createAnonUid } from "@pointerdevks/pointerai-client";
+import { PointerAIClient, PointerAIError, createAnonUid } from "@pointerdevks/ai-chat-client";
 
 type Position = "left" | "right";
 type WidgetRole = "user" | "assistant";

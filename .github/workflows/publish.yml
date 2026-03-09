@@ -23,12 +23,12 @@ jobs:
         run: npm ci
 
       - name: Publish client
-        run: npm -w @pointerdevks/pointerai-client publish --access public
+        run: npm -w @pointerdevks/ai-chat-client publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish widget
-        run: npm -w @pointerdevks/pointerai-widget publish --access public
+        run: npm -w @pointerdevks/ai-chat publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 

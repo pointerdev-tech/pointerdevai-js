@@ -23,11 +23,11 @@ jobs:
         run: npm ci
 
       - name: Lint client
-        run: npm -w @pointerdevks/pointerai-client run lint
+        run: npm -w @pointerdevks/ai-chat-client run lint
 
       - name: Lint widget
-        run: npm -w @pointerdevks/pointerai-widget run lint
+        run: npm -w @pointerdevks/ai-chat run lint
 
       - name: Widget smoke test
-        run: npm -w @pointerdevks/pointerai-widget run smoke
+        run: npm -w @pointerdevks/ai-chat run smoke
 

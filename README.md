@@ -1,11 +1,11 @@
-# pointerdevai-js
+# ai-chat-js
 
 Public JavaScript monorepo for PointerDev AI packages.
 
 ## Packages
 
-- `@pointerdev/pointerai-client`
-- `@pointerdev/pointerai-widget`
+- `@pointerdevks/ai-chat-client`
+- `@pointerdevks/ai-chat`
 
 ## Requirements
 
@@ -29,6 +29,6 @@ npm run smoke
 ## Package-level Examples
 
 ```bash
-npm -w @pointerdev/pointerai-client run lint
-npm -w @pointerdev/pointerai-widget run smoke
+npm -w @pointerdevks/ai-chat-client run lint
+npm -w @pointerdevks/ai-chat run smoke
 ```

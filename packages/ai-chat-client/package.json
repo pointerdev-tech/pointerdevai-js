@@ -1,6 +1,6 @@
 {
-  "name": "@pointerdevks/pointerai-client",
-  "version": "0.1.1",
+  "name": "@pointerdevks/ai-chat-client",
+  "version": "0.1.0",
   "description": "Official JavaScript client for PointerAI chat APIs.",
   "type": "module",
   "main": "./index.js",

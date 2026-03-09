@@ -1,6 +1,6 @@
 "use strict";
 (() => {
-  // ../pointerai-client/index.js
+  // ../ai-chat-client/index.js
   var PointerAIError = class extends Error {
     /**
      * @param {string} message

@@ -1,19 +1,19 @@
-# @pointerdevks/pointerai-widget
+# @pointerdevks/ai-chat
 
 Embeddable PointerAI chat widget for script-tag/CDN integration.
 
-This package now ships a real source/build pipeline and uses `@pointerdevks/pointerai-client` under the hood.
+This package now ships a real source/build pipeline and uses `@pointerdevks/ai-chat-client` under the hood.
 
 ## Install via CDN (after publish)
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@pointerdevks/pointerai-widget@latest/dist/pointerai-widget.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@pointerdevks/ai-chat@latest/dist/pointerai-widget.js" defer></script>
 ```
 
 ## Local development
 
 ```bash
-cd packages/pointerai-widget
+cd packages/ai-chat
 npm install
 npm run lint
 npm run build
@@ -32,7 +32,7 @@ window.pointeraiWidgetConfig = {
   launcherLabel: 'Chat with us',
 };
 </script>
-<script src="https://cdn.jsdelivr.net/npm/@pointerdevks/pointerai-widget@latest/dist/pointerai-widget.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@pointerdevks/ai-chat@latest/dist/pointerai-widget.js" defer></script>
 ```
 
 ## login_required projects
@@ -48,7 +48,7 @@ window.pointeraiWidgetConfig = {
   endUserToken: '<END_USER_JWT>',
 };
 </script>
-<script src="https://cdn.jsdelivr.net/npm/@pointerdevks/pointerai-widget@latest/dist/pointerai-widget.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@pointerdevks/ai-chat@latest/dist/pointerai-widget.js" defer></script>
 ```
 
 ## Options

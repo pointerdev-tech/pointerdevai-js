@@ -1,15 +1,15 @@
 {
-  "name": "pointerdevai-js",
+  "name": "ai-chat-js",
   "private": true,
   "version": "0.1.0",
-  "description": "PointerDev AI JavaScript monorepo (client + widget).",
+  "description": "PointerDev AI chat JavaScript monorepo (client + widget).",
   "workspaces": [
     "packages/*"
   ],
   "scripts": {
-    "lint": "npm -w @pointerdevks/pointerai-client run lint && npm -w @pointerdevks/pointerai-widget run lint",
-    "build": "npm -w @pointerdevks/pointerai-widget run build",
-    "smoke": "npm -w @pointerdevks/pointerai-widget run smoke",
+    "lint": "npm -w @pointerdevks/ai-chat-client run lint && npm -w @pointerdevks/ai-chat run lint",
+    "build": "npm -w @pointerdevks/ai-chat run build",
+    "smoke": "npm -w @pointerdevks/ai-chat run smoke",
     "test": "npm run smoke"
   },
   "engines": {
@@ -17,4 +17,3 @@
   },
   "license": "MIT"
 }
-

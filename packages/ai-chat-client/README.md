@@ -1,18 +1,18 @@
-# @pointerdevks/pointerai-client
+# @pointerdevks/ai-chat-client
 Official JavaScript client for PointerAI chat APIs.
 
 ## Install
 ```bash
 # after publishing
-npm install @pointerdevks/pointerai-client
+npm install @pointerdevks/ai-chat-client
 
 # local development (from monorepo root)
-npm install ./packages/pointerai-client
+npm install ./packages/ai-chat-client
 ```
 
 ## Quick Start
 ```ts
-import { createPointerAIClient, createAnonUid } from '@pointerdevks/pointerai-client';
+import { createPointerAIClient, createAnonUid } from '@pointerdevks/ai-chat-client';
 
 const client = createPointerAIClient({
   baseUrl: 'https://pointerdev.ai',
@@ -80,7 +80,7 @@ await client.revokeSessionToken();
 
 ## Publish
 ```bash
-cd packages/pointerai-client
+cd packages/ai-chat-client
 npm publish --access public
 ```
 
